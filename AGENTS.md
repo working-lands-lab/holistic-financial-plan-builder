@@ -28,10 +28,16 @@ It is intentionally small and self-contained.
 ### Source layout (the parts that matter)
 
 - `lib/model.js` — plan calculations and the `uid()` helper. Framework-agnostic.
+  A line item distributes its amount evenly, into a single month, or as an
+  explicit 12-month array (`mode: "custom"`, `months: [...]`).
 - `lib/exportWorkbook.js` — builds the Excel workbook from a plan object.
+- `lib/importWorkbook.js` — reads a workbook this app exported back into a plan,
+  so a plan can be carried out to Excel, edited, and brought back in. It only
+  reads our own export format; importing arbitrary spreadsheets is not supported.
 - `lib/defaultPlan.js` — `emptyPlan()` (blank starting point) and `examplePlan()`
   (the "Load example" worked sample).
 - `components/` — the planner UI (`Planner`, `IssuesEditor`, `LineItemsEditor`).
+- `*.test.js` next to the module they cover — run with Vitest (`npm test`).
 
 ## Build & run
 
@@ -40,6 +46,7 @@ npm install
 npm run dev       # local dev server
 npm run build     # -> dist/ (static; deployable as-is)
 npm run preview   # serve the production build locally
+npm test          # run the unit tests (Vitest)
 ```
 
 ## Durable facts an agent must respect

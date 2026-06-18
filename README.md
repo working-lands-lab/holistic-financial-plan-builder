@@ -35,6 +35,18 @@ The exported workbook is structured as:
 
 A worked example, built from fabricated sample figures, is one click away.
 
+## Bringing a plan back in
+
+Export a plan, work on it in Excel through the year, then **Import spreadsheet**
+to load it back in for an annual review. Import reads workbooks this app
+exported — it reconstructs your enterprises, line items, preliminary-planning
+notes, and the profit set-aside. Every line item can hold a full twelve months
+of figures, so the detail you enter in Excel comes back intact. Expand any line
+item in the planner to see and edit those twelve months directly; "spread
+evenly" and "one month" are quick ways to fill them.
+
+Importing other spreadsheets (ones this app didn't create) isn't supported yet.
+
 ## Running it
 
 ```bash
