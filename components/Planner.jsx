@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   TYPE_LIST,
   summarize,
@@ -29,6 +29,7 @@ export default function Planner() {
   const [plan, setPlan] = useState(null);
   const [step, setStep] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const fileInputRef = useRef(null);
 
   // Load from localStorage on mount.
   useEffect(() => {
@@ -103,6 +104,26 @@ export default function Planner() {
     }
   };
 
+  const doImport = async (file) => {
+    if (!file) return;
+    try {
+      const buffer = await file.arrayBuffer();
+      // ExcelJS is heavy; load it (and the import parser) only when needed.
+      const { importWorkbook } = await import("@/lib/importWorkbook");
+      const imported = await importWorkbook(buffer);
+      if (
+        confirm(
+          "Replace your current plan with the imported spreadsheet? This clears what's here now."
+        )
+      ) {
+        setPlan(imported);
+        setStep(0);
+      }
+    } catch (err) {
+      alert(`Couldn't import that file.\n\n${err.message}`);
+    }
+  };
+
   const doExport = async () => {
     const name = (plan.context.businessName || "Holistic Financial Plan").replace(
       /[\\/:*?"<>|]/g,
@@ -134,6 +155,22 @@ export default function Planner() {
             <button className="btn ghost small" onClick={resetAll}>
               Start over
             </button>
+            <button
+              className="btn ghost small"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              ↑ Import spreadsheet
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+              style={{ display: "none" }}
+              onChange={(e) => {
+                doImport(e.target.files?.[0]);
+                e.target.value = "";
+              }}
+            />
             <button className="btn primary small" onClick={doExport}>
               ↓ Export spreadsheet
             </button>

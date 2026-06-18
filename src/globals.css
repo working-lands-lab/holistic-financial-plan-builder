@@ -443,6 +443,46 @@ textarea {
   text-align: right;
 }
 
+.month-grid-row td {
+  background: var(--surface-2);
+  padding: 10px 12px;
+}
+
+.month-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.month-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 64px;
+}
+
+.month-cell span {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+
+.month-cell input {
+  width: 100%;
+  text-align: right;
+  padding: 5px 6px !important;
+}
+
+.month-grid-actions {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+  align-self: center;
+}
+
 .amount {
   font-variant-numeric: tabular-nums;
   font-weight: 600;
