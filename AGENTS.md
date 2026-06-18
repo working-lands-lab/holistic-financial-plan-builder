@@ -17,7 +17,7 @@ It is intentionally small and self-contained.
 
 ## How it works
 
-- **Stack:** Vite + React + Tailwind. Plain client-side React — no router, no SSR.
+- **Stack:** Vite + React with hand-written CSS. Plain client-side React — no router, no SSR.
 - **Client-only.** There is no backend, no accounts, no analytics, no network calls.
   Nothing the user enters leaves their browser.
 - **Persistence:** the working plan is saved to the browser's `localStorage`.
