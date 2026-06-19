@@ -5,8 +5,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  // Must match the path the app is embedded under on the Savory AI Collab site
-  // and the GitHub Pages project-site path. See AGENTS.md before changing.
+  // Served from a sub-path, not the domain root (the default matches the repo
+  // name, which suits a GitHub Pages project site). Change to match your deploy
+  // path; see AGENTS.md.
   base: "/holistic-financial-plan-builder/",
   plugins: [react()],
   resolve: {

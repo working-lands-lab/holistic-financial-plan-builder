@@ -51,25 +51,20 @@ npm test          # run the unit tests (Vitest)
 
 ## Durable facts an agent must respect
 
-- **This repo is PUBLIC. Never commit real client or organization financial data.**
+- **This repo is public. Never commit real client or organization financial data.**
   The bundled example plan (`lib/defaultPlan.js` → `examplePlan()`) is **fabricated
   illustrative data** ("Example Ranch & Education Hub"). Keep it that way. If you add
   or change example data, invent it — do not paste a real operating plan.
 
-- **The Vite `base` is `/holistic-financial-plan-builder/` and must stay that way.**
-  This app is embedded on the Savory AI Collab site under that path, and the same
-  base also matches a GitHub Pages project-site path
-  (`working-lands-lab.github.io/holistic-financial-plan-builder/`). Changing the base
-  breaks the embedded deployment's asset URLs.
+- **`vite.config.js` sets a non-root `base`.** The app is built to be served from a
+  sub-path (the default matches the repo name, which suits a GitHub Pages project
+  site), so asset URLs resolve relative to that base rather than the domain root. If
+  you deploy at a domain root or a different path, update `base` to match — otherwise
+  the built assets 404.
 
-- **This repo is the source of truth; the collab site holds a built snapshot.** The
-  Savory AI Collab site does not import this source. It copies a built `dist/` in via
-  a one-shot sync script after you publish a change here. So a change is only "live"
-  on the collab site once someone rebuilds here and runs that sync. Keep `npm run build`
-  producing a clean `dist/index.html` + `dist/assets/…` under the base path above.
-
-- **Stay generic.** This is a network-wide tool, not one organization's plan. Avoid
-  hard-coding any single hub's names, programs, or numbers into the app or its copy.
+- **Stay generic.** This is a tool for the whole land-stewardship community, not one
+  organization's plan. Avoid hard-coding any single hub's names, programs, or numbers
+  into the app or its copy.
 
 ## Voice (for any user-facing text)
 
