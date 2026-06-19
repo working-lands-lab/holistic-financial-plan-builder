@@ -47,6 +47,21 @@ evenly" and "one month" are quick ways to fill them.
 
 Importing other spreadsheets (ones this app didn't create) isn't supported yet.
 
+## Feedback & ideas
+
+This tool is built for the land-stewardship community, and your experience makes
+it better. Something not working? Have an idea, or a question about how a part of
+it works? We'd love to hear it.
+
+The best place to reach us is **GitHub Discussions** — one spot for bug reports,
+ideas, and questions alike:
+
+**→ https://github.com/working-lands-lab/holistic-financial-plan-builder/discussions**
+
+Posting needs a free GitHub account, which takes about a minute to set up. We read
+everything that comes in, and we turn the bugs and ideas worth building into work
+on the tool.
+
 ## Running it
 
 ```bash
